@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "109948281340",
+    "project_id": "thirty-seven-hours",
+    "storage_bucket": "thirty-seven-hours.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109948281340:android:f3d742c31e543f0f6ed279",
+        "android_client_info": {
+          "package_name": "com.example.thirty_seven_hours"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109948281340-o02f464bm6o55o5bj4ukchorbjp3us51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNC8DEEAezPFdG8HNw9QxXVo9Lliyp0Ro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "109948281340-o02f464bm6o55o5bj4ukchorbjp3us51.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
