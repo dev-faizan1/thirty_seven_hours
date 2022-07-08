@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'dart:developer' as devtools show log;
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -30,6 +31,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Login')),
       body: Column(
         children: [
           TextField(
@@ -49,15 +51,16 @@ class _LoginViewState extends State<LoginView> {
               final email = _email.text;
               final pass = _pass.text;
               try {
-                final userCredential = await FirebaseAuth.instance
+                await FirebaseAuth.instance
                     .signInWithEmailAndPassword(email: email, password: pass);
-                print(userCredential);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/notes', (route) => false);
               } on FirebaseAuthException catch (e) {
-                print(e.code);
+                devtools.log(e.code);
                 if (e.code == 'invalid-email') {
-                  print('invalid Email');
+                  devtools.log('invalid Email');
                 } else {
-                  print('Something happend');
+                  devtools.log('Something happend');
                 }
               }
             },
