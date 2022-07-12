@@ -5,7 +5,6 @@ import 'dart:developer' as devtools show log;
 
 import 'package:thirty_seven_hours/constants/routes.dart';
 
-
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
 
@@ -54,11 +53,11 @@ class _RegisterViewState extends State<RegisterView> {
               final email = _email.text;
               final pass = _pass.text;
               try {
-                final userCredential = await FirebaseAuth.instance
-                    .createUserWithEmailAndPassword(
-                        email: email, password: pass);
-                        await FirebaseAuth.instance.currentUser?.sendEmailVerification();
-                devtools.log(userCredential.toString());
+                await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: email, password: pass);
+                final user =  FirebaseAuth.instance.currentUser; 
+                await user?.sendEmailVerification();
+                Navigator.pushNamed(context, verifyEmailRoute); 
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'weak-password') {
                   devtools.log('Weak Password');
